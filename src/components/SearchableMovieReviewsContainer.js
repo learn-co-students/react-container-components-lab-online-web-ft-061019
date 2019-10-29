@@ -16,18 +16,21 @@ export default class SearchableMovieReviewsContainer extends Component{
         }
     }
 
-    handleSubmit = () => {
+    handleSubmit = (event) => {
         event.preventDefault()
-        fetch(URL)
+        fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?')
         .then(res => res.json())
         .then(reviewData => this.setState({ reviews: reviewData.results}))
     }
 
     render(){
         return(
-            <div className="searchable-movie-reviews">
-                <MovieReviews reviews={this.state.reviews} />
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                
+                <div className="searchable-movie-reviews">
+                    <MovieReviews reviews={this.state.reviews} />
+                </div>
+            </form>
         )
     }
 
