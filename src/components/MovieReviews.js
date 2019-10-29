@@ -3,11 +3,13 @@ import LatestMovieReviewContainer from './LatestMovieReviewsContainer';
 
 const MovieReviews = ({reviews}) => (
     <div className='review-list'>
-        <ul
-         className="review">
+        <ul>
            {  reviews && reviews.map ?
-            reviews.map(review => {review.length
-            console.log(review)}) : null} 
+            reviews.map(review => (
+                <div className="review">
+                    
+                </div>
+            )) : null} 
 
            
         </ul>
