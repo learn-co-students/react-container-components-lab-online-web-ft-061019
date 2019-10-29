@@ -6,7 +6,7 @@ const MovieReviews = ({reviews}) => (
         <ul>
            {  reviews && reviews.map ?
             reviews.map(review => (
-                <div className="review">
+                <div className="review" key={review.headline}>
                     
                 </div>
             )) : null} 

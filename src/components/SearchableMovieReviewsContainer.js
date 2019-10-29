@@ -15,17 +15,29 @@ export default class SearchableMovieReviewsContainer extends Component {
         }
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault();        
+        fetch(URL)
+        .then(response => response.json())
+        .then(reviewData => this.setState({reviews: reviewData.results}))
+    }
+
     
 
 
     render() {
         return(
-            <div className="searchable-movie-reviews" >
+            <form onSubmit={this.handleSubmit}>
+                <input type="text"></input>
+                <input type="submit"></input>
+            
+                <div className="searchable-movie-reviews" >
                 <MovieReviews reviews={this.state.reviews} />
                 
 
             
-            </div>
+                </div>
+            </form>
         )
     }
 }
